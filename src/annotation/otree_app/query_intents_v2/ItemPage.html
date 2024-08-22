@@ -1,0 +1,84 @@
+{{ block header }}
+
+<script src="{{ static 'js/itempage_v2.js' }}"></script>
+
+<style>
+    .otree-btn-next,.btn:disabled {
+        pointer-events: auto;
+    }
+    div.otree-body {
+        max-width: 97%;
+    }
+    .page-header {
+        display: none;
+    }
+    thead tr th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    th {
+        background: white !important;
+    }
+    textarea.intent {
+        max-width: 10em;
+        height: 7em;
+    }
+    input.assessment, input.assessment-none {
+        transform: scale(2);
+    }
+</style>
+{{ endblock }}
+
+{{ block content }}
+<div class="d-flex flex-column py-4" style="height: 97vh;">
+    <p class="rounded p-3 bg-dark text-light"><b>Search terms</b>: <i>{{ query }}</i></p>
+    <div class="overflow-auto">
+        <table class="table table-hover" id="main-tab">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="text-center align-middle">Not relevant to search</th>
+                    {{ for intent_id, intent in intents }}
+                    <th>
+                        <textarea class="intent" id="{{ intent_id }}">{{ intent }}</textarea>
+                    </th>
+                    {{ endfor }}
+                </tr>
+            </thead>
+            <tbody>
+                {{ for passage_id, passage in passages }}
+                <tr>
+                    <td>{{ passage }}</td>
+                    <td class="align-middle text-center">
+                        <input type="checkbox" class="assessment-none" id="{{ passage_id }}:::none" for="{{ passage_id }}">
+                    </td>
+                    {{ for intent_id, intent in intents }}
+                    <td class="align-middle text-center">
+                        <input type="checkbox" class="assessment" id="{{ passage_id }}:::{{ intent_id }}" for="{{ passage_id }}">
+                    </td>
+                    {{ endfor }}
+                </tr>
+                {{ endfor }}
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="progress mx-2 my-4">
+        <div class="progress-bar" role="progressbar" aria-label="Task progress" style="width: {{ progress }}%;"
+            aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100">
+        </div>
+    </div>
+
+    <input type="hidden" name="result_assessments" id="result_assessments" />
+
+    <div class="d-flex px-2 align-items-center">
+        <p class="mx-2 my-0">Round {{ cur_round }} of {{ total_rounds }} ({{ progress }}% done)</p>
+        <p class="mx-auto"></p>
+        <p class="mx-2 my-0 p-1 alert alert-danger" id="error-intents">Please specify all information needs (at the top) that you used.</p>
+        <p class="mx-2 my-0 p-1 alert alert-danger" id="error-checkboxes">Please select at least one checkbox in each row.</p>
+        <button onclick="setVals()" class="mx-2 my-0 otree-btn-next btn btn-primary">Next</button>
+    </div>
+</div>
+{{ endblock }}

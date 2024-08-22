@@ -1,0 +1,51 @@
+{{ block title }}
+Instructions
+{{ endblock }}
+
+{{ block content }}
+<p>This study is about figuring out <b>what people actually want to find</b> when they search the web.</p>
+
+<p>We ask you to work on a total of <b>{{ C.NUM_ROUNDS }} task(s)</b>.</p>
+
+<p>
+    In each task, you'll be presented with <b>search terms</b>, i.e., a query that users issued in a web search engine. For each user, there is a corresponding <b>result text snippet</b>. According to the user, this text snippet <b>contains what they were looking for</b>, i.e., it <b>satisfies the information need(s)</b> they had.
+</p>
+
+<p>    
+    Your job is to <b>select the information need(s)</b> that you think each user had, i.e., <b>what they actually wanted to know</b>.
+</p>
+
+<h3 class="mt-4">Here's an example</h3>
+
+<p>Consider the following <b>web search query</b>: <i>what can you make in a slow cooker</i></p>
+<p>In this example, a total of <b>four users</b> issued this exact query. Each of them selected one text snippet (passage) that satisfied their information need(s). <b>Our job is to find out what those information needs were.</b></p>
+<img src="{{ static 'img/example-1.png' }}" class="w-100 mb-4 border border-dark">
+
+<p>At the top, there are several <b>possible information needs</b>.</p>
+<p>We start with the first result snippet. It is fairly obvious that it is about ingredients that are suitable for slow cooking. This corresponds to one of the suggested information needs, so we select it:</p>
+<img src="{{ static 'img/example-2.png' }}" class="w-100 mb-4 border border-dark">
+
+<p>The second result snippet is about vegetarian recipes for slow cookers. This corresponds to the other suggested information need. However, these recipes contain explicit ingredients, so we select the first information need as well:</p>
+<img src="{{ static 'img/example-3.png' }}" class="w-100 mb-4 border border-dark">
+
+<p>The third result is very similar to the second one; the only difference is that the recipes are not vegetarian, as they contain beef. Thus, we <b>modify</b> the information need <i>vegetarian slow cooker recipes</i> by changing it to <i>slow cooker recipes</i>. That way, we can assign both the second and third snippet to it:</p>
+<img src="{{ static 'img/example-4.png' }}" class="w-100 mb-4 border border-dark">
+
+<p>Finally, the last result does not fit any of our existing information needs. Hence, we simply create a new one in the empty field:</p>
+<img src="{{ static 'img/example-5.png' }}" class="w-100 mb-4 border border-dark">
+
+<div class="card text-white bg-secondary mb-3">
+    <div class="card-header">
+        <b>⚠️ Important</b>
+    </div>
+    <div class="card-body">
+      <p class="card-text">When you modify or add information needs, it is important to make them <b>self-contained</b>, i.e., <b>independent of the search terms</b>:</p>
+      <p class="card-text mx-2"><b>❌ Bad example</b>: <i>tips and techniques</i></p>
+      <p class="card-text mx-2"><b>✅ Good example</b>: <i>tips and techniues for slow cooking</i></p>
+    </div>
+</div>
+
+<p>Now we've completed the task in this example.</p>
+<p class="mt-4">Ready to go? Click <i>Next</i> to start!</p>
+{{ next_button }}
+{{ endblock }}
