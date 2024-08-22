@@ -1,0 +1,9 @@
+q_id	intent
+123	This is intent candidate 1 for query 123
+123	This is intent candidate 2 for query 123
+234	This is intent candidate 1 for query 234
+234	This is intent candidate 2 for query 234
+345	This is intent candidate 1 for query 345
+345	This is intent candidate 2 for query 345
+456	This is intent candidate 1 for query 456
+456	This is intent candidate 2 for query 456

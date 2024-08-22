@@ -106,6 +106,4 @@ venv.bak/
 # VS Code
 .vscode/
 
-src/annotation/data/*.tsv
-
 .DS_Store
