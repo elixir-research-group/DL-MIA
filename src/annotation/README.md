@@ -6,7 +6,7 @@ Please consult the [oTree documentation](https://otree.readthedocs.io/en/latest/
 
 ## Setting Up and Running the App
 
-Install the requirements from `otree_app/requirements.txt` using `pip`. Furthermore, a PostgreSQL instance is required to run a production server. More information can be found [here](https://otree.readthedocs.io/en/latest/server/ubuntu.html#ubuntu-linux-server).
+Install the requirements from `otree_app/requirements.txt` using `pip`. A PostgreSQL instance is required to run a production server. More information can be found [here](https://otree.readthedocs.io/en/latest/server/ubuntu.html#ubuntu-linux-server).
 
 The easiest way to launch the app is using `start.sh`. This sets the necessary environment variables and starts the server. **Make sure to replace any placeholders in the script** (such as your database connection, passwords, and the secret key).
 
@@ -22,7 +22,7 @@ Finally, `NUM_INTENT_FIELDS` controls the number of text fields (for intent cand
 
 ## Parsing the Results
 
-After the annotations are complete, the resulting data can be downloaded from the oTree web interface as a plain `.csv` file. This file contains **one row for each participant**. The relevance assessments can be found in the following rows:
+After the annotations are complete, the resulting data can be downloaded from the oTree web interface as a plain `.csv` file. This file contains **one row for each participant**. The relevance assessments can be found in the following columns:
 
 - `query_intents_v2.<ROUND>.player.result_assessments`
 - `query_intents_v2.<ROUND>.player.result_<INTENT>`
