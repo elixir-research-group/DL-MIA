@@ -1,0 +1,2 @@
+python-terrier==0.10.0
+pandas==2.2.0
