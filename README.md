@@ -2,6 +2,7 @@
 DL-MIA  is an intent-document ranking datasets which consists of high quality user intents annotated over a small yet challenging set of
 24 queries from the TREC-DL ’21 and ’22 datasets. Towards this we used a combination of LLM-generated query-specific intents and sub-intents that is post-processed through a carefully designed  crowd sourcing process to ensure human oversight and quality control. ML-DIA mainly aims to measuring the gap between user intent with query intent by fine-grained intent annotation.
 # Folder structure
+
 ├── README.md
 ├── data
 │   ├── intent.tsv
