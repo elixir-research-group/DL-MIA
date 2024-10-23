@@ -44,8 +44,16 @@ BM25 results are obtained using PyTerrier. We use the provided MS MARCO v2 (pass
 
 ### ColBERTv2
 
-(Coming soon)
+The ColBERTV2 is employed as re-ranker over documents retrieved using BM25. The code is available at colbert_ranking.py.
+
+The files used for the run such as top-1000 BM25 results are available in intermediate_outputs.
+
+
 
 ## Evaluation
 
-(Coming soon)
+```
+python colbert_ranking.py
+```
+would give the best re-rankign results reported in the paper.
+We use pytrec-eval for evaluation and the R@100 and nDCG@10 in paper can also be obtained using the runfiles.
