@@ -83,8 +83,8 @@ if __name__=="__main__":
             processed_docs.append(Evidence(text=doc[1], title="", idx=doc[0]))
         query_response = colbert_search.retrieve(processed_docs, [Question(queries[query_id], idx=query_id)], top_k=1000)
         print("list(query_response.keys())[0]list(query_response.keys())[0]",len(list(query_response.keys())))
-    if list(query_response.keys())[0] not in response:
-        response[list(query_response.keys())[0]] = query_response[list(query_response.keys())[0]]
+        if list(query_response.keys())[0] not in response:
+            response[list(query_response.keys())[0]] = query_response[list(query_response.keys())[0]]
 
     metrics = RetrievalMetrics(k_values=[1, 10, 100])
     with open("runs/colbert_runfile.json","w") as f:
