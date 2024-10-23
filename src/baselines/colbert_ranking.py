@@ -51,6 +51,7 @@ def read_queries() -> Dict:
     for index, row in query_data.iterrows():
         print(row[0],row[1])
         queries[row[0]] = row[1]
+    return queries
 
 if __name__=="__main__":
     qrels = read_qrels()
